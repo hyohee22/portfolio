@@ -1,6 +1,5 @@
 @charset "UTF-8";
-/* Import Local SCSS Files */
-/* Import Local SCSS Files */
+/* Import Local SCSS Files */ /* Import Local SCSS Files */
 @font-face {
   font-family: "GangwonEduPowerExtraBoldA";
   src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff") format("woff");
@@ -354,7 +353,7 @@ textarea[disabled] {
     margin-left: 20px;
   }
   #project .project-inner .filter-container .filter-box1,
-  #project .project-inner .filter-container .filter-box2 {
+#project .project-inner .filter-container .filter-box2 {
     display: none;
   }
   #project .project-inner .filter-container .project-card-box {
@@ -499,7 +498,7 @@ textarea[disabled] {
     background-color: #F6154F;
   }
   #project .modal-wrapper.mobile .modal-swiper .swiper-button-prev,
-  #project .modal-wrapper.mobile .modal-swiper .swiper-button-next {
+#project .modal-wrapper.mobile .modal-swiper .swiper-button-next {
     display: none;
   }
   #project .modal-wrapper.mobile .modal-swiper * {

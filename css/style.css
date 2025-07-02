@@ -1,6 +1,5 @@
 @charset "UTF-8";
-/* Import Local SCSS Files */
-/* Import Local SCSS Files */
+/* Import Local SCSS Files */ /* Import Local SCSS Files */
 @font-face {
   font-family: "GangwonEduPowerExtraBoldA";
   src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff") format("woff");
@@ -221,8 +220,7 @@ textarea[disabled] {
   font-weight: normal;
   font-style: normal;
 }
-/* Import Local SCSS Files */
-/* Import Local SCSS Files */
+/* Import Local SCSS Files */ /* Import Local SCSS Files */
 @font-face {
   font-family: "GangwonEduPowerExtraBoldA";
   src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff") format("woff");
@@ -576,7 +574,7 @@ textarea[disabled] {
     margin-left: 20px;
   }
   #project .project-inner .filter-container .filter-box1,
-  #project .project-inner .filter-container .filter-box2 {
+#project .project-inner .filter-container .filter-box2 {
     display: none;
   }
   #project .project-inner .filter-container .project-card-box {
@@ -721,7 +719,7 @@ textarea[disabled] {
     background-color: #F6154F;
   }
   #project .modal-wrapper.mobile .modal-swiper .swiper-button-prev,
-  #project .modal-wrapper.mobile .modal-swiper .swiper-button-next {
+#project .modal-wrapper.mobile .modal-swiper .swiper-button-next {
     display: none;
   }
   #project .modal-wrapper.mobile .modal-swiper * {
@@ -830,6 +828,7 @@ body {
   font-family: "GangwonEduPowerExtraBoldA";
   font-size: 23px;
   color: #686444;
+  height: 70px;
 }
 .intro .intro-top-inner .main-intro-top .intro-title img {
   margin-top: 440px;
@@ -891,12 +890,12 @@ body {
   border-top: 1px solid #F6154F;
   border-bottom: 1px solid #F6154F;
   text-align: center;
-  height: 615px;
+  height: 568px;
 }
 .about .about-inner .about-wrapper .about-my-self .my-photo img {
   margin-top: 30px;
   border-radius: 150px;
-  width: 200px;
+  width: 170px;
 }
 .about .about-inner .about-wrapper .about-my-self .my-desc {
   font-size: 20px;

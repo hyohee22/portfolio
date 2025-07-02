@@ -47,6 +47,7 @@ body {
           font-family: $Title-Font-Bold;
           font-size: $h4-px;
           color: $Dark-Green;
+          height: 70px;
         }
         img{
           margin-top: 440px;
@@ -100,13 +101,13 @@ body {
     .about-wrapper{
       display: flex; gap: 50px;
       .about-my-self{
-      width: 357px; border-top: 1px solid $Red;
-      border-bottom: 1px solid $Red; text-align: center; height: 615px;
+      width: 357px; border-top: 1px solid $Red; 
+      border-bottom: 1px solid $Red; text-align: center; height: 568px;
       .my-photo{
         img{
           margin-top: 30px;
           border-radius: 150px;
-          width: 200px;
+          width: 170px;
         }
       }
       .my-desc{

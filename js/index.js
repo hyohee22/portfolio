@@ -1,4 +1,4 @@
-// ✅ 타이핑 문장 (HTML 포함)
+// 타이핑 문장
 const quotes = [
   `“끊임없이 배우고, 만들어내며, 성장해왔습니다. <br>지금 이 순간도 더 나은 웹을 고민하는<br>프론트엔드 개발자입니다.”`
 ];
@@ -15,7 +15,6 @@ function type() {
 
   // 문장 다 출력한 경우
   if (charIndex === current.length) {
-    // 다음 문장 없으면 멈춤 or 다시 반복
     return; 
   } else {
     setTimeout(type, 50); // 타이핑 속도 조절
@@ -104,30 +103,43 @@ const modalSlides = [
 ];
 
 // 필터 함수
-checkboxes.forEach(cb => cb.addEventListener('change', applyFilter));
+//체크박스 중복 불가
+checkboxes.forEach(cb => {
+  cb.addEventListener('change', function () {
+    checkboxes.forEach(otherCb => {
+      if (otherCb !== cb) otherCb.checked = false;
+    });
+
+    cb.checked = this.checked;
+
+    applyFilter();
+  });
+});
 
 function applyFilter() {
+  
   const selected = [...checkboxes]
     .filter(cb => cb.checked)
-    .map(cb => cb.value);
+    .map(cb => cb.value)[0];
 
   cards.forEach(card => {
     const tags = card.dataset.category.split(' ');
-    if (selected.includes('all') || selected.length === 0) {
+    if (selected === 'all' || !selected) {
       card.style.display = 'block';
     } else {
-      const isMatch = selected.some(tag => tags.includes(tag));
+      const isMatch = tags.includes(selected);
       card.style.display = isMatch ? 'block' : 'none';
     }
   });
 }
+
 
 // 카드 클릭 시 모달 열기
 cards.forEach((card, index) => {
   card.addEventListener('click', () => {
     modal.style.display = 'flex';
 
-    // ✅ 모바일일 경우 클래스 추가
+    
   if (window.innerWidth <= 768) {
     modal.classList.add('mobile');
   } else {
@@ -193,13 +205,12 @@ cards.forEach((card, index) => {
         observeParents: true,
         on: {
           init: function () {
-            // 초기화 완료 후 슬라이드 이동
             this.slideTo(startIndex || 0);
           }
         }
       });
   
-    }, 0); // ✅ 이거 안 닫아서 생긴 오류야!!
+    }, 0);
   });
     
 
@@ -233,7 +244,7 @@ emailElement.addEventListener('click', () => {
 
   navigator.clipboard.writeText(email)
     .then(() => {
-      // ✅ 복사 성공 시 효과
+      // 복사 성공 시 효과
       const originalText = emailElement.innerText;
       emailElement.innerText = '📋 복사 완료';
       emailElement.classList.add('copied');
