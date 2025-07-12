@@ -4,8 +4,14 @@
 
 /* common */
 body {
-  overflow-x: hidden;
   font-family: $Main-Font;
+}
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 /* inner */
