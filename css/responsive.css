@@ -247,7 +247,7 @@ textarea[disabled] {
   .intro .intro-top-inner .main-intro-top .intro-title-img img {
     width: 100px;
     margin-top: 30px;
-    margin-left: 350px;
+    margin-left: 290px;
   }
   .intro .main-intro-bot {
     display: -webkit-box;
@@ -349,6 +349,7 @@ textarea[disabled] {
   }
   #project .project-inner {
     width: 90%;
+    height: auto;
   }
   #project .project-inner .filter-container {
     margin-left: 20px;
@@ -435,6 +436,9 @@ textarea[disabled] {
     font-size: 18px;
     line-height: 25px;
   }
+  #project .modal-wrapper.mobile .modal-swiper .swiper-slide .modal-slide-inner .modal-text-box .modal-text-span {
+    width: 100%;
+  }
   #project .modal-wrapper.mobile .modal-swiper .swiper-slide .modal-slide-inner .modal-text-box .skill-icons {
     cursor: pointer;
   }
@@ -455,18 +459,18 @@ textarea[disabled] {
   }
   #project .modal-wrapper.mobile .modal-swiper .swiper-slide .modal-slide-inner .modal-img-box .project-gif {
     width: 60%;
-    height: 200px;
+    height: 170px;
     margin-top: 60px;
     position: absolute;
     top: 30%;
-    left: 33%;
+    left: 35%;
     z-index: -1;
   }
   #project .modal-wrapper.mobile .modal-swiper .swiper-slide .modal-slide-inner .modal-img-box .mobile-preview {
     width: 75%;
     position: absolute;
     z-index: 13;
-    left: 26%;
+    left: 28%;
     top: -5px;
   }
   #project .modal-wrapper.mobile .modal-swiper .swiper-slide .modal-slide-inner .btn-group {

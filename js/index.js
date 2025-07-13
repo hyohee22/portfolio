@@ -39,6 +39,7 @@ const modalSlides = [
   {
     title: '주택관리공단',
     desc: '주택관리공단 홈페이지를<br> 리디자인하여 제작하였습니다.',
+    Contribution: '',
     skills: ['html', 'css', 'javascript', 'figma', 'Github'],
     gif: 'project01.gif',
     bg: 'project01-bg.png',
@@ -50,8 +51,9 @@ const modalSlides = [
     }
   },
   {
-    title: '스튜디오 지브리',
+    title: '스튜디오<br> 지브리',
     desc: '스튜디오 지브리 홈페이지를<br> 리디자인하여 제작하였습니다.',
+    Contribution: '<strong>기여도 : 39%</strong> <br> 제작페이지: 메인페이지(헤더, 이벤트, 지도), 서브페이지(회사정보, 소식, 이벤트, QnA)',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
     gif: 'project02.gif',
     bg: 'project02-bg.png',
@@ -65,12 +67,13 @@ const modalSlides = [
     {
     title: '프립',
     desc: '프립 홈페이지를<br> 리디자인하여 제작하였습니다.',
+    Contribution: '',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
-    gif: 'project02.gif',
-    bg: 'project02-bg.png',
+    gif: 'project03.gif',
+    bg: 'project03-bg.png',
     links: {
-      plan: 'https://example.com/plan2.pdf',
-      figma: 'https://figma.com/project2',
+      plan: '',
+      figma: '',
       github: 'https://github.com/hyohee22/frip.git',
       site: 'https://hyohee22.github.io/frip/'
     }
@@ -78,27 +81,57 @@ const modalSlides = [
     {
     title: '롯데리아',
     desc: '롯데리아 홈페이지를<br> 리디자인하여 제작하였습니다.',
+    Contribution: '<strong>기여도 : 43%</strong> <br> 제작페이지: 메인페이지(메인푸터, 배너, 숏츠, 매장찾기, 서브푸터), 서브페이지(브랜드)',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
-    gif: 'project02.gif',
-    bg: 'project02-bg.png',
+    gif: 'project04.gif',
+    bg: 'project04-bg.png',
     links: {
-      plan: 'https://example.com/plan2.pdf',
+      plan: '',
       figma: 'https://www.figma.com/design/ccfH1wfZ0SsSsYr6sj7Qdq/Untitled?node-id=0-1&t=nk8TpipzmSVYEhzx-1',
       github: 'https://github.com/hyohee22/webRedesign-Lotteria.git',
       site: 'https://hyohee22.github.io/webRedesign-Lotteria/'
     }
   },
     {
-    title: '와일드 리프트',
+    title: '와일드<br> 리프트',
     desc: '와일드 리프트 홈페이지를<br> 리디자인하여 제작하였습니다.',
+    Contribution: '<strong>기여도 : 29%</strong> <br> 제작페이지: 메인페이지(캐릭터소개, 배너, 관련게임), 서브페이지(캐릭터 소개)',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
-    gif: 'project02.gif',
-    bg: 'project02-bg.png',
+    gif: 'project05.gif',
+    bg: 'project05-bg.png',
     links: {
-      plan: 'https://example.com/plan2.pdf',
+      plan: '',
       figma: 'https://www.figma.com/design/sBI4tArVHDgKL6nuWS3zXf/Untitled?node-id=0-1&t=fJBgCjIQRmnF05HC-1',
       github: 'https://github.com/hyohee22/webRedesign-WildRift.git',
       site: 'https://hyohee22.github.io/webRedesign-WildRift/'
+    }
+  },
+    {
+    title: '공차',
+    desc: '공차 홈페이지를<br> 리디자인하여 제작하였습니다.',
+    Contribution: '',
+    skills: ['html', 'scss', 'javascript', 'figma', 'Github', 'react', 'bootstrap'],
+    gif: 'project06.gif',
+    bg: 'project06-bg.png',
+    links: {
+      plan: '',
+      figma: 'https://www.figma.com/design/H0kZ7DIz3LphQSryWmngWK/Untitled?node-id=0-1&t=0pckH5zkTZvqEyxD-1',
+      github: 'https://github.com/hyohee22/gongcah.git',
+      site: 'https://gongchaa.netlify.app/'
+    }
+  },
+  {
+    title: '포트폴리오',
+    desc: '포트폴리오를<br> 제작하였습니다.',
+    Contribution: '',
+    skills: ['html', 'scss', 'javascript', 'figma', 'Github',],
+    gif: 'project07.gif',
+    bg: 'project07-bg.png',
+    links: {
+      plan: '',
+      figma: 'https://www.figma.com/design/yYEUpIKnmtGJcUNTb85uSN/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4?node-id=0-1&t=dIo2CN6FyLLP7CrX-1',
+      github: 'https://github.com/hyohee22/portfolio.git',
+      site: 'https://hyohee22.github.io/portfolio/'
     }
   }
 ];
@@ -145,9 +178,10 @@ cards.forEach((card, index) => {
         <div class="swiper-slide">
           <div class="modal-slide-inner">
             <div class="modal-text-box">
-              <h3>${data.title}</h3>
-              <h1>ReDesign</h1>
+              <h3>ReDesign</h3>
+              <h1>${data.title}</h1>
               <p>${data.desc}</p>
+              <p class="modal-text-span">${data.Contribution}</p>
               <div class="skill-icons">
                 ${data.skills.map(skill => `<img src="images/skill${getSkillIndex(skill)}.png" alt="${skill}">`).join('')}
               </div>
@@ -157,11 +191,11 @@ cards.forEach((card, index) => {
               <img src="images/${data.bg}" alt="프로젝트 사진" class="mobile-preview">
             </div>
             <div class="btn-group">
-              <a href="${data.links.plan}" target="_blank" class="modal-btn">기획서</a>
-              <a href="${data.links.figma}" target="_blank" class="modal-btn">Figma</a>
-              <a href="${data.links.github}" target="_blank" class="modal-btn">Github</a>
-              <a href="${data.links.site}" target="_blank" class="modal-btn pint">홈페이지</a>
-            </div>
+            ${data.links.plan ? `<a href="${data.links.plan}" target="_blank" class="modal-btn">기획서</a>` : ''}
+            ${data.links.figma ? `<a href="${data.links.figma}" target="_blank" class="modal-btn">Figma</a>` : ''}
+            ${data.links.github ? `<a href="${data.links.github}" target="_blank" class="modal-btn">Github</a>` : ''}
+            ${data.links.site ? `<a href="${data.links.site}" target="_blank" class="modal-btn pint">홈페이지</a>` : ''}
+          </div>
           </div>
         </div>
       `;
@@ -211,7 +245,9 @@ function getSkillIndex(skill) {
     scss: '03',
     javascript: '05',
     figma: '10',
-    Github: '07'
+    Github: '07',
+    react: '06',
+    bootstrap: '08'
   };
   return map[skill] || '00';
 }
