@@ -65,15 +65,17 @@
 ## 2. 파일 구성
 ```
 🌱 portfolio
- ┣ 📂 public
-   📄 index.html    
-   📄 login_index.html   
-   📄 sub_index.html     
- ┗ 📂 src    
-    ┗ 📂 js    
-      📄 index.html    
-      📄 login_index.html   
-      📄 sub_index.html
+ ┣ 📄 index.html
+ ┣ 📂 css
+ ┣ 📂 scss
+    📄 fonts.scss  
+    📄 reset.scss
+    📄 responsive.scss
+    📄 style.scss
+    📄 variables.scss
+ ┗ 📂 js    
+    📄 index.js
+
 ```
 
    </br>
