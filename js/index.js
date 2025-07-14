@@ -160,7 +160,6 @@ cards.forEach((card, index) => {
   card.addEventListener('click', () => {
     modal.style.display = 'flex';
 
-    // ✅ 모바일일 경우 클래스 추가
     if (window.innerWidth <= 768) {
       modal.classList.add('mobile');
     } else {
@@ -238,7 +237,7 @@ cards.forEach((card, index) => {
   });
 
 
-  // 스킬 아이콘 이미지 번호 매칭
+  // 스킬 아이콘 이미지
   function getSkillIndex(skill) {
     const map = {
       html: '01',
