@@ -391,6 +391,16 @@ html, body {
                 top: 18%;
                 left: 75px;
                 z-index: -1;
+                &.gongcha-gif{
+                  width: 600px;
+                  top: 16%;
+                  left: 70px;
+                }
+                &.portfolio-gif{
+                  width: 600px;
+                  top: 16%;
+                  left: 70px;
+                }
               }
               .mobile-preview {
                 width: 800px;

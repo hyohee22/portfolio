@@ -16,7 +16,7 @@ function type() {
   // 문장 다 출력한 경우
   if (charIndex === current.length) {
     // 다음 문장 없으면 멈춤 or 다시 반복
-    return; 
+    return;
   } else {
     setTimeout(type, 50); // 타이핑 속도 조절
   }
@@ -64,7 +64,7 @@ const modalSlides = [
       site: 'https://hyohee22.github.io/WebsiteREdesign-Ghibli/'
     }
   },
-    {
+  {
     title: '프립',
     desc: '프립 홈페이지를<br> 리디자인하여 제작하였습니다.',
     Contribution: '',
@@ -78,7 +78,7 @@ const modalSlides = [
       site: 'https://hyohee22.github.io/frip/'
     }
   },
-    {
+  {
     title: '롯데리아',
     desc: '롯데리아 홈페이지를<br> 리디자인하여 제작하였습니다.',
     Contribution: '<strong>기여도 : 43%</strong> <br> 제작페이지: 메인페이지(메인푸터, 배너, 숏츠, 매장찾기, 서브푸터), 서브페이지(브랜드)',
@@ -92,7 +92,7 @@ const modalSlides = [
       site: 'https://hyohee22.github.io/webRedesign-Lotteria/'
     }
   },
-    {
+  {
     title: '와일드<br> 리프트',
     desc: '와일드 리프트 홈페이지를<br> 리디자인하여 제작하였습니다.',
     Contribution: '<strong>기여도 : 29%</strong> <br> 제작페이지: 메인페이지(캐릭터소개, 배너, 관련게임), 서브페이지(캐릭터 소개)',
@@ -106,7 +106,7 @@ const modalSlides = [
       site: 'https://hyohee22.github.io/webRedesign-WildRift/'
     }
   },
-    {
+  {
     title: '공차',
     desc: '공차 홈페이지를<br> 리디자인하여 제작하였습니다.',
     Contribution: '',
@@ -161,11 +161,11 @@ cards.forEach((card, index) => {
     modal.style.display = 'flex';
 
     // ✅ 모바일일 경우 클래스 추가
-  if (window.innerWidth <= 768) {
-    modal.classList.add('mobile');
-  } else {
-    modal.classList.remove('mobile');
-  }
+    if (window.innerWidth <= 768) {
+      modal.classList.add('mobile');
+    } else {
+      modal.classList.remove('mobile');
+    }
 
     // 보여지는 카드 기준으로 슬라이드 생성
     const visibleCards = [...cards].filter(c => c.style.display !== 'none');
@@ -187,7 +187,9 @@ cards.forEach((card, index) => {
               </div>
             </div>
             <div class="modal-img-box">
-              <img src="images/${data.gif}" alt="프로젝트 미리보기" class="project-gif">
+              <img src="images/${data.gif}" 
+              alt="프로젝트 미리보기" 
+              class="project-gif ${data.title === '공차' ? 'gongcha-gif' : data.title === '포트폴리오' ? 'portfolio-gif' : ''}">
               <img src="images/${data.bg}" alt="프로젝트 사진" class="mobile-preview">
             </div>
             <div class="btn-group">
@@ -216,7 +218,7 @@ cards.forEach((card, index) => {
       if (swiperInstance && swiperInstance.destroy) {
         swiperInstance.destroy(true, true);
       }
-    
+
       swiperInstance = new Swiper('.modal-swiper', {
         loop: false,
         navigation: {
@@ -227,61 +229,60 @@ cards.forEach((card, index) => {
         observeParents: true,
         on: {
           init: function () {
-            // 초기화 완료 후 슬라이드 이동
             this.slideTo(startIndex || 0);
           }
         }
       });
-  
-    }, 0); // ✅ 이거 안 닫아서 생긴 오류야!!
+
+    }, 0);
   });
-    
 
-// 스킬 아이콘 이미지 번호 매칭
-function getSkillIndex(skill) {
-  const map = {
-    html: '01',
-    css: '02',
-    scss: '03',
-    javascript: '05',
-    figma: '10',
-    Github: '07',
-    react: '06',
-    bootstrap: '08'
-  };
-  return map[skill] || '00';
-}
 
-// 모달 닫기
-modalClose.addEventListener('click', () => {
-  modal.style.display = 'none';
-  modal.classList.remove('mobile');
-});
+  // 스킬 아이콘 이미지 번호 매칭
+  function getSkillIndex(skill) {
+    const map = {
+      html: '01',
+      css: '02',
+      scss: '03',
+      javascript: '05',
+      figma: '10',
+      Github: '07',
+      react: '06',
+      bootstrap: '08'
+    };
+    return map[skill] || '00';
+  }
 
-// 필터 적용
-applyFilter();
+  // 모달 닫기
+  modalClose.addEventListener('click', () => {
+    modal.style.display = 'none';
+    modal.classList.remove('mobile');
+  });
 
-//이메일 복사
-const emailElement = document.getElementById('email');
+  // 필터 적용
+  applyFilter();
 
-emailElement.addEventListener('click', () => {
-  const email = emailElement.innerText;
+  //이메일 복사
+  const emailElement = document.getElementById('email');
 
-  navigator.clipboard.writeText(email)
-    .then(() => {
-      // ✅ 복사 성공 시 효과
-      const originalText = emailElement.innerText;
-      emailElement.innerText = '📋 복사 완료';
-      emailElement.classList.add('copied');
+  emailElement.addEventListener('click', () => {
+    const email = emailElement.innerText;
 
-      setTimeout(() => {
-        emailElement.innerText = originalText;
-        emailElement.classList.remove('copied');
-      }, 800);
-    })
-    .catch((err) => {
-      alert('복사 실패');
-      console.error(err);
-    });
-});
+    navigator.clipboard.writeText(email)
+      .then(() => {
+
+        const originalText = emailElement.innerText;
+        emailElement.innerText = '📋 복사 완료';
+        emailElement.classList.add('copied');
+
+        setTimeout(() => {
+          emailElement.innerText = originalText;
+          emailElement.classList.remove('copied');
+        }, 800);
+      })
+      .catch((err) => {
+        alert('복사 실패');
+        console.error(err);
+      });
+  });
 });
