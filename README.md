@@ -64,13 +64,16 @@
 
 ## 2. 파일 구성
 ```
-🌱 housing management
- ┣ 📂 images     
- ┣ 📂 css    
- ┗ 📂 js    
+🌱 portfolio
+ ┣ 📂 public
    📄 index.html    
    📄 login_index.html   
-   📄 sub_index.html
+   📄 sub_index.html     
+ ┗ 📂 src    
+    ┗ 📂 js    
+      📄 index.html    
+      📄 login_index.html   
+      📄 sub_index.html
 ```
 
    </br>
