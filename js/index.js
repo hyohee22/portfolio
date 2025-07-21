@@ -133,6 +133,20 @@ const modalSlides = [
       github: 'https://github.com/hyohee22/portfolio.git',
       site: 'https://hyohee22.github.io/portfolio/'
     }
+  },
+  {
+    title: 'Movie306',
+    desc: 'Movie306를<br> 제작하였습니다.',
+    Contribution: '',
+    skills: ['html', 'scss', 'javascript', 'figma', 'Github','react'],
+    gif: 'project08.gif',
+    bg: 'project05-bg.png',
+    links: {
+      plan: '',
+      figma: 'https://www.figma.com/design/WCrIJv5sbxVib5ucyD8FoC/%EC%98%81%ED%99%94?node-id=0-1&t=tLtwuXvVwX52aCJN-1',
+      github: 'https://github.com/hyohee22/Movie.git',
+      site: 'https://coruscating-palmier-1f4905.netlify.app/'
+    }
   }
 ];
 
