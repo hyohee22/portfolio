@@ -135,8 +135,8 @@ const modalSlides = [
     }
   },
   {
-    title: 'Movie 306',
-    desc: 'Movie 306를<br> 제작하였습니다.',
+    title: 'Movie306',
+    desc: 'Movie306를<br> 제작하였습니다.',
     Contribution: '',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github','react'],
     gif: 'project08.gif',
