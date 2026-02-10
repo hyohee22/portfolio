@@ -267,9 +267,9 @@ h1, h2, h3, h4, h5, h6 {
 .nav-inner {
   max-width: var(--inner-width);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 

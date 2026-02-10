@@ -305,7 +305,7 @@ const allProjects = [
   {
     type: 'publishing',
     title: '주택관리공단',
-    card: 'project-card01.png',
+    card: 'project-card01.jpg',
     tag: 'Single',
     desc: '주택관리공단 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '',
@@ -322,7 +322,7 @@ const allProjects = [
   {
     type: 'publishing',
     title: '스튜디오 지브리',
-    card: 'project-card02.png',
+    card: 'project-card02.jpg',
     tag: 'Team',
     desc: '스튜디오 지브리 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '<strong>기여도 : 39%</strong> <br> 제작페이지: 메인페이지(헤더, 이벤트, 지도), 서브페이지(회사정보, 소식, 이벤트, QnA)',
@@ -339,7 +339,7 @@ const allProjects = [
   {
     type: 'publishing',
     title: '프립',
-    card: 'project-card03.png',
+    card: 'project-card03.jpg',
     tag: 'Single',
     desc: '프립 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '',
@@ -356,7 +356,7 @@ const allProjects = [
   {
     type: 'publishing',
     title: '롯데리아',
-    card: 'project-card04.png',
+    card: 'project-card04.jpg',
     tag: 'Team',
     desc: '롯데리아 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '<strong>기여도 : 43%</strong> <br> 제작페이지: 메인페이지(메인푸터, 배너, 숏츠, 매장찾기, 서브푸터), 서브페이지(브랜드)',
@@ -390,7 +390,7 @@ const allProjects = [
   {
     type: 'publishing',
     title: '공차',
-    card: 'project-card06.png',
+    card: 'project-card06.jpg',
     tag: 'Single / React',
     desc: '공차 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '',
@@ -406,9 +406,26 @@ const allProjects = [
   },
   {
     type: 'publishing',
-    title: '포트폴리오',
+    title: 'Movie306',
+    card: 'project-card08.jpg',
+    tag: 'Single / React',
+    desc: 'Movie306를<br>제작하였습니다.',
+    Contribution: '',
+    skills: ['html', 'scss', 'javascript', 'figma', 'Github', 'react'],
+    gif: 'project08.gif',
+    bg: 'project05-bg.png',
+    links: {
+      plan: '',
+      figma: 'https://www.figma.com/design/WCrIJv5sbxVib5ucyD8FoC/%EC%98%81%ED%99%94?node-id=0-1&t=tLtwuXvVwX52aCJN-1',
+      github: 'https://github.com/hyohee22/Movie.git',
+      site: 'https://coruscating-palmier-1f4905.netlify.app/'
+    }
+  },
+  {
+    type: 'publishing',
+    title: '세르보테크',
     card: 'project-card07.png',
-    tag: 'Single',
+    tag: 'Team',
     desc: '포트폴리오를<br>제작하였습니다.',
     Contribution: '',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
@@ -423,19 +440,36 @@ const allProjects = [
   },
   {
     type: 'publishing',
-    title: 'Movie306',
-    card: 'project-card08.png',
-    tag: 'Single / React',
-    desc: 'Movie306를<br>제작하였습니다.',
+    title: '티벌컨',
+    card: 'project-card09.png',
+    tag: 'Team',
+    desc: '포트폴리오를<br>제작하였습니다.',
     Contribution: '',
-    skills: ['html', 'scss', 'javascript', 'figma', 'Github', 'react'],
-    gif: 'project08.gif',
-    bg: 'project05-bg.png',
+    skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
+    gif: 'project07.gif',
+    bg: 'project07-bg.png',
     links: {
       plan: '',
-      figma: 'https://www.figma.com/design/WCrIJv5sbxVib5ucyD8FoC/%EC%98%81%ED%99%94?node-id=0-1&t=tLtwuXvVwX52aCJN-1',
-      github: 'https://github.com/hyohee22/Movie.git',
-      site: 'https://coruscating-palmier-1f4905.netlify.app/'
+      figma: 'https://www.figma.com/design/yYEUpIKnmtGJcUNTb85uSN/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4?node-id=0-1&t=dIo2CN6FyLLP7CrX-1',
+      github: 'https://github.com/hyohee22/portfolio.git',
+      site: 'https://hyohee22.github.io/portfolio/'
+    }
+  },
+  {
+    type: 'publishing',
+    title: '리얼디자인테크',
+    card: 'project-card10.png',
+    tag: 'Team',
+    desc: '포트폴리오를<br>제작하였습니다.',
+    Contribution: '',
+    skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
+    gif: 'project07.gif',
+    bg: 'project07-bg.png',
+    links: {
+      plan: '',
+      figma: 'https://www.figma.com/design/yYEUpIKnmtGJcUNTb85uSN/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4?node-id=0-1&t=dIo2CN6FyLLP7CrX-1',
+      github: 'https://github.com/hyohee22/portfolio.git',
+      site: 'https://hyohee22.github.io/portfolio/'
     }
   },
   // ---- AI Projects ----
