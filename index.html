@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
   <meta charset="UTF-8">
@@ -8,6 +8,11 @@
   <title>조효희 포트폴리오</title>
   <!---------------- favicon ---------------->
   <link rel="icon" href="images/wildrift-symbol-skyblue.png">
+
+  <!---------------- Google Fonts ---------------->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
 
   <!---------------- aos ---------------->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -20,52 +25,130 @@
 
   <!---------------- style ---------------->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Prevent flash of wrong theme -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+      else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
 </head>
 
-<body>
-  <!-- main -->
-  <main class="intro">
-    <div class="intro-top-inner">
-      <div class="main-intro-top">
-        <div class="intro-title">
-          <p id="typing">
-            “끊임없이 배우고, 만들어내며, 성장해왔습니다. <br>지금 이 순간도 더 나은 웹을 고민하는<br>
-            프론트엔드 개발자입니다.”
-          </p>
-          <img src="images/main-flower02.png" alt="클로버">
-        </div>
-        <div class="intro-title-img">
-          <img src="images/main-title.png" alt="포토폴리오">
-        </div>
+<body class="loading">
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-text">
+        <span class="preloader-word">Portfoilo</span>
+      </div>
+      <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Noise overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress"></div>
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <!-- <a href="#" class="nav-logo">JHH</a> -->
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link active" data-section="hero">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#project" class="nav-link" data-section="project">Project</a></li>
+        <li><a href="#epilogue" class="nav-link" data-section="epilogue">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="bi bi-moon"></i>
+          <i class="bi bi-sun-fill"></i>
+        </button>
+        <button class="nav-toggle" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
-    <div class="main-intro-bot">
-      <div class="intro-flower-img">
-        <img src="images/main-flower01.png" alt="클로버">
+  </nav>
+
+  <!-- Section navigation dots -->
+  <div class="section-dots">
+    <a href="#hero" class="dot active" data-section="hero"></a>
+    <a href="#about" class="dot" data-section="about"></a>
+    <a href="#project" class="dot" data-section="project"></a>
+    <a href="#epilogue" class="dot" data-section="epilogue"></a>
+  </div>
+
+  <!-- Hero Section -->
+  <main class="intro" id="hero">
+    <div class="intro-inner">
+      <div class="intro-content">
+        <div class="intro-text">
+          <p class="intro-subtitle" data-reveal="fade-up" data-reveal-delay="200">Web Designer</p>
+          <h1 class="intro-heading">
+            <span class="line" data-reveal="split" data-reveal-delay="400">Always learning,</span>
+            <span class="line" data-reveal="split" data-reveal-delay="600">always creating,</span>
+            <span class="line accent" data-reveal="split" data-reveal-delay="800">always growing.</span>
+          </h1>
+          <p class="intro-desc" data-reveal="fade-up" data-reveal-delay="1000" id="typing">
+            "A frontend developer who pursues a better web, even at this very moment."
+          </p>
+          <div class="intro-cta" data-reveal="fade-up" data-reveal-delay="1200">
+            <a href="#project" class="btn-primary magnetic">View Projects</a>
+            <a href="johyohee-resume.pdf" download class="btn-outline magnetic">
+              Download Resume <i class="bi bi-arrow-down-short"></i>
+            </a>
+          </div>
+        </div>
+        <div class="intro-visual" data-reveal="fade-left" data-reveal-delay="800" data-parallax="-0.15">
+          <div class="intro-name-display">
+            <span class="big-name">JO</span>
+            <span class="big-name">HYO</span>
+            <span class="big-name">HEE</span>
+          </div>
+          <div class="intro-decoration" data-parallax="0.1">
+            <img src="images/main-flower02.png" alt="decoration" class="float-img">
+          </div>
+        </div>
       </div>
-      <div class="intro-name">
-        <p>JO HYO HEE</p>
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
       </div>
     </div>
   </main>
-  <!-- section : about -->
-  <section class="about" data-section="1">
+
+  <!-- About Section -->
+  <section class="about" id="about">
     <div class="about-inner">
-      <h2 class="section-title">
-        About
-      </h2>
+      <div class="section-header" data-reveal="fade-up">
+        <span class="section-number">01</span>
+        <h2 class="section-title">About</h2>
+        <div class="section-line"></div>
+      </div>
       <div class="about-wrapper">
-        <div class="about-my-self">
+        <div class="about-my-self" data-reveal="fade-right" data-reveal-delay="200">
           <div class="my-photo">
             <img src="images/main-hyohee.png" alt="조효희">
+            <div class="photo-frame"></div>
           </div>
           <div class="my-desc">
-            <p>조효희</p>
+            <h3>조효희</h3>
             <ul>
-              <li>010-7507-5250</li>
-              <li>https://github.com/hyohee22</li>
-              <li>whgygml2580@naver.com</li>
+              <li><i class="bi bi-telephone"></i> 010-7507-5250</li>
+              <li><i class="bi bi-github"></i> github.com/hyohee22</li>
+              <li><i class="bi bi-envelope"></i> whgygml2580@naver.com</li>
             </ul>
           </div>
           <div class="my-resume-btn">
@@ -76,32 +159,49 @@
         </div>
         <div class="about-desc-wrap">
           <div class="about-desc-skill-lic">
-            <div class="skill-box">
-              <div class="skill-item">
-                <img src="images/skill01.png" alt="html">
-                <img src="images/skill02.png" alt="css">
-                <img src="images/skill03.png" alt="scss">
-                <img src="images/skill04.png" alt="vscode">
-              </div>
-              <div class="skill-item">
-                <img src="images/skill05.png" alt="html">
-                <img src="images/skill06.png" alt="css">
-                <img src="images/skill07.png" alt="scss">
-                <img src="images/skill08.png" alt="vscode">
-              </div>
-              <div class="skill-item">
-                <img src="images/skill09.png" alt="html">
-                <img src="images/skill10.png" alt="css">
-                <img src="images/skill11.png" alt="scss">
-                <img src="images/skill12.png" alt="vscode">
-              </div>
-              <div class="skill-item">
-                <img src="images/skill13.png" alt="html">
+            <div class="skill-box" data-reveal="fade-up" data-reveal-delay="300">
+              <h3>Skills</h3>
+              <div class="skill-grid">
+                <div class="skill-item">
+                  <span class="skill-icon-wrap" data-tooltip="HTML"><img src="images/skill01.png" alt="html"></span>
+                  <span class="skill-icon-wrap" data-tooltip="CSS"><img src="images/skill02.png" alt="css"></span>
+                  <span class="skill-icon-wrap" data-tooltip="SCSS"><img src="images/skill03.png" alt="scss"></span>
+                  <span class="skill-icon-wrap" data-tooltip="VS Code"><img src="images/skill04.png" alt="vscode"></span>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-icon-wrap" data-tooltip="JavaScript"><img src="images/skill05.png" alt="javascript"></span>
+                  <span class="skill-icon-wrap" data-tooltip="React"><img src="images/skill06.png" alt="react"></span>
+                  <span class="skill-icon-wrap" data-tooltip="GitHub"><img src="images/skill07.png" alt="github"></span>
+                  <span class="skill-icon-wrap" data-tooltip="Bootstrap"><img src="images/skill08.png" alt="bootstrap"></span>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-icon-wrap" data-tooltip="Photoshop"><img src="images/skill09.png" alt="photoshop"></span>
+                  <span class="skill-icon-wrap" data-tooltip="Figma"><img src="images/skill10.png" alt="figma"></span>
+                  <span class="skill-icon-wrap" data-tooltip="Illustrator"><img src="images/skill11.png" alt="illustrator"></span>
+                  <span class="skill-icon-wrap" data-tooltip="XD"><img src="images/skill12.png" alt="xd"></span>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-icon-wrap" data-tooltip="Notion"><img src="images/skill13.png" alt="notion"></span>
+                </div>
               </div>
             </div>
-            <div class="license-box">
+            <div class="ai-box" data-reveal="fade-up" data-reveal-delay="350">
+              <h3>AI</h3>
+              <div class="skill-grid">
+                <div class="skill-item">
+                  <span class="skill-icon-wrap" data-tooltip="Claude"><img src="images/skill-claude.svg" alt="Claude"></span>
+                  <span class="skill-icon-wrap" data-tooltip="ChatGPT"><img src="images/skill-chatgpt.svg" alt="ChatGPT"></span>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-icon-wrap" data-tooltip="Gemini"><img src="images/skill-gemini.svg" alt="Gemini"></span>
+                  <span class="skill-icon-wrap" data-tooltip="AI Studio"><img src="images/skill-aistudio.svg" alt="Google AI Studio"></span>
+                </div>
+              </div>
+            </div>
+            <div class="license-box" data-reveal="fade-up" data-reveal-delay="400">
               <h3>자격증</h3>
               <ul>
+                <li>웹디자인개발기능사</li>
                 <li>(GTQ) 일러스트 1급</li>
                 <li>(GTQ) 포토샵 1급</li>
                 <li>전산회계 2급</li>
@@ -116,113 +216,74 @@
               </ul>
             </div>
           </div>
-          <div class="adu-box">
-            <h3>학력 및 교육</h3>
-            <ul>
-              <li>그린컴퓨터아트학원 [AI활용 프론트앤드 반응형 웹개발자 과정]
-                2025.03.11 ~ 2025.08.20
-              </li>
-              <li>목원대학교 미술교육과 2018.03.01 ~ 2022. 02.28</li>
-            </ul>
-          </div>
-          <div class="career-box">
-            <h3>경력사항</h3>
-            <ul>
-              <li>목원대학교 사범대학 실무조교 2023.11.01 ~ 2024. 10.31</li>
-              <li>디에스교육컨설팅 연구원 2022.03.01 ~ 2023.05.31</li>
-            </ul>
+          <div class="about-bottom-row">
+            <div class="adu-box" data-reveal="fade-up" data-reveal-delay="500">
+              <h3>학력 및 교육</h3>
+              <ul>
+                <li>
+                  <span class="timeline-date">2025.10 ~</span>
+                  <span class="timeline-text">학점은행제 컴퓨터공학과</span>
+                </li>
+                <li>
+                  <span class="timeline-date">2025.03 ~ 2025.08</span>
+                  <span class="timeline-text">그린컴퓨터아트학원 [AI활용 프론트앤드 반응형 웹개발자 과정]</span>
+                </li>
+                <li>
+                  <span class="timeline-date">2018.03 ~ 2022.02</span>
+                  <span class="timeline-text">목원대학교 미술교육과</span>
+                </li>
+              </ul>
+            </div>
+            <div class="career-box" data-reveal="fade-up" data-reveal-delay="600">
+              <h3>경력사항</h3>
+              <ul>
+                <li>
+                  <span class="timeline-date">2025.08 ~</span>
+                  <span class="timeline-text">알바트로스픽쳐스 디지털웹팀 매니저</span>
+                </li>
+                <li>
+                  <span class="timeline-date">2023.11 ~ 2024.10</span>
+                  <span class="timeline-text">목원대학교 사범대학 실무조교</span>
+                </li>
+                <li>
+                  <span class="timeline-date">2022.03 ~ 2023.05</span>
+                  <span class="timeline-text">디에스교육컨설팅 연구원</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- section : project -->
-  <section id="project" data-section="2">
+
+  <!-- Project Section -->
+  <section id="project">
     <div class="project-inner">
-      <h2 class="section-title">
-        Project
-      </h2>
-      <div class="filter-container">
-        <div class="filter-box1">
-          <label><input type="checkbox" name="filter" value="all" /> All</label>
-          <label><input type="checkbox" name="filter" value="team" /> Team</label>
-          <label><input type="checkbox" name="filter" value="single" /> Single</label>
+      <div class="section-header" data-reveal="fade-up">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Project</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="project-tabs" data-reveal="fade-up" data-reveal-delay="100">
+        <button class="project-tab active" data-tab="publishing">퍼블리싱</button>
+        <button class="project-tab" data-tab="ai">AI</button>
+      </div>
+      <div class="project-carousel-wrap" data-reveal="fade-up" data-reveal-delay="200">
+        <div class="swiper project-swiper">
+          <div class="swiper-wrapper" id="projectSwiperWrapper">
+          </div>
         </div>
-        <div class="filter-box2">
-          <label><input type="checkbox" name="filter" value="html" /> HTML</label>
-          <label><input type="checkbox" name="filter" value="css" /> CSS</label>
-          <label><input type="checkbox" name="filter" value="scss" /> SCSS</label>
-          <label><input type="checkbox" name="filter" value="javascript" /> JavaScript</label>
-          <label><input type="checkbox" name="filter" value="react" /> React</label>
-          <label><input type="checkbox" name="filter" value="responsive" /> 반응형</label>
-        </div>
-        <div class="project-card-box">
-          <div class="project-card" data-category="single html css javascript responsive" data-index="0">
-            <div class="project-card-img">
-              <img src="images/project-card01.png" alt="주택관리공단">
-            </div>
-            <p>주택관리공단 리뉴얼</p>
-            <button>자세히 보기</button>
-          </div>
-          <div class="project-card" data-category="team html scss javascript responsive" data-index="1">
-            <div class="project-card-img">
-              <img src="images/project-card02.png" alt="지브리">
-            </div>
-            <p>스튜디오 지브리 리뉴얼</p>
-            <button>자세히 보기</button>
-          </div>
-          <div class="project-card" data-category="single html scss javascript responsive" data-index="2">
-            <div class="project-card-img">
-              <img src="images/project-card03.png" alt="프립">
-            </div>
-            <p>프립 리뉴얼</p>
-            <button>자세히 보기</button>
-          </div>
-          <div class="project-card" data-category="team html scss javascript responsive" data-index="3">
-            <div class="project-card-img">
-              <img src="images/project-card04.png" alt="롯데리아">
-            </div>
-            <p>롯데리아 리뉴얼</p>
-            <button>자세히 보기</button>
-          </div>
-          <div class="project-card" data-category="team html scss javascript" data-index="4">
-            <div class="project-card-img">
-              <img src="images/project-card05.png" alt="와일드리프트">
-            </div>
-            <p>lol 와일드리프트 리뉴얼</p>
-            <button>자세히 보기</button>
-          </div>
-          <div class="project-card" data-category="single react scss javascript responsive" data-index="5">
-            <div class="project-card-img">
-              <img src="images/project-card06.png" alt="공차">
-            </div>
-            <p>공차</p>
-            <button>자세히 보기</button>
-          </div>
-          <div class="project-card" data-category="single html scss javascript responsive" data-index="6">
-            <div class="project-card-img">
-              <img src="images/project-card07.png" alt="포트폴리오">
-            </div>
-            <p>포트폴리오</p>
-            <button>자세히 보기</button>
-          </div>
-          <div class="project-card" data-category="single html scss javascript react" data-index="7">
-            <div class="project-card-img">
-              <img src="images/project-card08.png" alt="뮤비306">
-            </div>
-            <p>Movie306</p>
-            <button>자세히 보기</button>
-          </div>
+        <div class="carousel-scrollbar">
+          <div class="carousel-scrollbar-track" id="projectScrollbar"></div>
         </div>
       </div>
 
     </div>
-    <!-- 모달 + 스와이퍼 -->
+    <!-- Modal + Swiper -->
     <div class="modal-wrapper" id="projectModal" style="display: none;">
+      <div class="modal-overlay"></div>
       <div class="modal-content">
-        <span></span>
-        <span></span>
-        <span></span>
         <button class="modal-close">
           <i class="bi bi-x-lg"></i>
         </button>
@@ -259,10 +320,7 @@
                 </div>
               </div>
             </div>
-            <!-- 👆 슬라이드 끝 -->
-
           </div>
-
           <div class="swiper-button-prev">
             <i class="bi bi-chevron-left"></i>
           </div>
@@ -273,57 +331,91 @@
       </div>
     </div>
   </section>
-  <!-- section : epilogue -->
-  <section class="epilogue" data-section="3">
+
+  <!-- Epilogue Section -->
+  <section class="epilogue" id="epilogue">
     <div class="epilogue-inner">
-      <div class="epilogue-desc">
-        <h2 class="section-title epilogur-title">
-          Epilogue
-        </h2>
-        <div class="epilogue-img">
-          <img src="images/apilogue-hyohee.jpg" alt="">
+      <div class="section-header" data-reveal="fade-up">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Contact</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="epilogue-content">
+        <div class="epilogue-left" data-reveal="fade-right" data-reveal-delay="200">
+          <div class="epilogue-img">
+            <img src="images/apilogue-hyohee.jpg" alt="조효희">
+          </div>
         </div>
-        <p>
-          "따뜻한 시선과 정성 어린 개발로, <br> 일상 속 작은 행복을 전하고 싶습니다."
-        </p>
-        <div class="mail-box">
-          <p>문의 메일</p>
-          <p id="email" class="copy-email">whgygml2580@naver.com
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy"
-              viewBox="0 0 16 16">
-              <path fill-rule="evenodd"
-                d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z" />
-            </svg>
-          </p>
+        <div class="epilogue-right" data-reveal="fade-left" data-reveal-delay="400">
+          <h3 class="epilogue-quote">
+            "따뜻한 시선과 정성 어린 개발로,<br>
+            일상 속 작은 행복을 전하고 싶습니다."
+          </h3>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="bi bi-envelope-fill"></i>
+              <div>
+                <span class="contact-label">Email</span>
+                <p id="email" class="copy-email">whgygml2580@naver.com
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-copy"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z" />
+                  </svg>
+                </p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="bi bi-telephone-fill"></i>
+              <div>
+                <span class="contact-label">Phone</span>
+                <p>010-7507-5250</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="bi bi-github"></i>
+              <div>
+                <span class="contact-label">Github</span>
+                <p><a href="https://github.com/hyohee22" target="_blank">github.com/hyohee22</a></p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="epilogue-bot">
-        <div class="left-flower">
-          <img src="images/main-flower01.png" alt="클로버">
-        </div>
-        <div class="right-flower">
-          <img src="images/main-flower02.png" alt="클로버">
-        </div>
+      <div class="epilogue-big-text" data-reveal="fade-up" data-reveal-delay="600">
+        <span>Portfolio</span>
       </div>
     </div>
   </section>
 
+  <!-- Top Button -->
+  <button class="top-btn" id="topBtn" aria-label="Scroll to top">
+    <svg class="top-btn-progress" viewBox="0 0 48 48">
+      <circle class="top-btn-track" cx="24" cy="24" r="21"/>
+      <circle class="top-btn-fill" cx="24" cy="24" r="21" id="topBtnFill"/>
+    </svg>
+    <span class="top-btn-icon"><i class="bi bi-arrow-up"></i></span>
+  </button>
 
-
-
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; 2025 Jo Hyo Hee. All Rights Reserved.</p>
+      <div class="footer-links">
+        <a href="https://github.com/hyohee22" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="mailto:whgygml2580@naver.com"><i class="bi bi-envelope-fill"></i></a>
+      </div>
+    </div>
+  </footer>
 
   <!---------------- aos ---------------->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <!---------------- swiper ---------------->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
-  <script>
-    AOS.init();
-  </script>
 
   <!-- js -->
   <script src="js/index.js"></script>
-
 </body>
 
 </html>

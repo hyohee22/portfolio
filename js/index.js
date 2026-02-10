@@ -1,44 +1,313 @@
-// ✅ 타이핑 문장 (HTML 포함)
-const quotes = [
-  `“끊임없이 배우고, 만들어내며, 성장해왔습니다. <br>지금 이 순간도 더 나은 웹을 고민하는<br>프론트엔드 개발자입니다.”`
-];
+// ============================================
+// PORTFOLIO - Jo Hyo Hee
+// MetaLab-inspired Motion System
+// ============================================
 
+// -------- Dark Mode Toggle --------
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('theme');
+
+if (savedTheme) {
+  document.documentElement.setAttribute('data-theme', savedTheme);
+} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.documentElement.setAttribute('data-theme', 'dark');
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+}
+
+// -------- Preloader --------
+const preloader = document.getElementById('preloader');
+
+function hidePreloader() {
+  if (!preloader) return;
+  preloader.classList.add('done');
+  document.body.classList.remove('loading');
+  // Trigger hero reveals after preloader fades
+  setTimeout(() => {
+    triggerHeroReveals();
+  }, 400);
+}
+
+window.addEventListener('load', () => {
+  setTimeout(hidePreloader, 2200);
+});
+
+// -------- Custom Reveal System (replaces AOS) --------
+function triggerHeroReveals() {
+  const heroReveals = document.querySelectorAll('.intro [data-reveal]');
+  heroReveals.forEach(el => {
+    const delay = parseInt(el.getAttribute('data-reveal-delay') || 0);
+    setTimeout(() => {
+      el.classList.add('revealed');
+    }, delay);
+  });
+}
+
+// IntersectionObserver for scroll-triggered reveals
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const delay = parseInt(el.getAttribute('data-reveal-delay') || 0);
+
+      // Don't reveal hero elements via observer — they use preloader timing
+      if (el.closest('.intro')) return;
+
+      setTimeout(() => {
+        el.classList.add('revealed');
+      }, delay);
+      revealObserver.unobserve(el);
+    }
+  });
+}, {
+  threshold: 0.15,
+  rootMargin: '0px 0px -60px 0px'
+});
+
+document.querySelectorAll('[data-reveal]').forEach(el => {
+  // Hero elements handled separately
+  if (!el.closest('.intro')) {
+    revealObserver.observe(el);
+  }
+});
+
+// Stagger reveal observer
+const staggerObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      staggerObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -40px 0px'
+});
+
+document.querySelectorAll('.stagger-reveal').forEach(el => {
+  staggerObserver.observe(el);
+});
+
+// Section line + number reveal
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const line = entry.target.querySelector('.section-line');
+      const num = entry.target.querySelector('.section-number');
+      if (line) setTimeout(() => line.classList.add('revealed'), 300);
+      if (num) setTimeout(() => num.classList.add('revealed'), 100);
+      sectionObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.section-header').forEach(el => {
+  sectionObserver.observe(el);
+});
+
+// -------- AOS Init (kept for any remaining data-aos elements) --------
+if (typeof AOS !== 'undefined') {
+  AOS.init({
+    duration: 800,
+    easing: 'ease-out-cubic',
+    once: true,
+    offset: 80,
+  });
+}
+
+// -------- Typing Effect --------
+const quotes = [
+  `"A frontend developer who pursues a better web, even at this very moment."`
+];
 let quotesIndex = 0;
 let charIndex = 0;
 const quotesElement = document.getElementById('typing');
 
 function type() {
   const current = quotes[quotesIndex];
-
-  quotesElement.innerHTML = current.slice(0, charIndex + 1);
+  quotesElement.textContent = current.slice(0, charIndex + 1);
   charIndex++;
+  if (charIndex < current.length) {
+    setTimeout(type, 50);
+  }
+}
+if (quotesElement) {
+  quotesElement.textContent = '';
+  // Delay typing to sync with preloader
+  setTimeout(type, 3200);
+}
 
-  // 문장 다 출력한 경우
-  if (charIndex === current.length) {
-    // 다음 문장 없으면 멈춤 or 다시 반복
-    return;
-  } else {
-    setTimeout(type, 50); // 타이핑 속도 조절
+// -------- Parallax Scroll --------
+const parallaxElements = document.querySelectorAll('[data-parallax]');
+const epilogueBigText = document.querySelector('.epilogue-big-text span');
+
+function updateParallax() {
+  const scrollY = window.scrollY;
+
+  parallaxElements.forEach(el => {
+    const speed = parseFloat(el.getAttribute('data-parallax'));
+    const rect = el.getBoundingClientRect();
+    const centerY = rect.top + rect.height / 2;
+    const offset = (centerY - window.innerHeight / 2) * speed;
+    el.style.transform = `translateY(${offset}px)`;
+  });
+
+  // Horizontal scroll effect on epilogue big text
+  if (epilogueBigText) {
+    const rect = epilogueBigText.getBoundingClientRect();
+    const progress = 1 - (rect.top / window.innerHeight);
+    if (progress > 0 && progress < 2) {
+      const offset = (progress - 0.5) * -80;
+      epilogueBigText.style.transform = `translateX(${offset}px)`;
+    }
   }
 }
 
-type();
+window.addEventListener('scroll', updateParallax, { passive: true });
 
+// -------- Magnetic Buttons --------
+const magneticBtns = document.querySelectorAll('.magnetic');
 
+magneticBtns.forEach(btn => {
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+  });
+
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = 'translate(0, 0)';
+  });
+});
+
+// -------- Custom Cursor --------
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorOutline = document.querySelector('.cursor-outline');
+
+if (cursorDot && cursorOutline && window.innerWidth > 768) {
+  let mouseX = 0, mouseY = 0;
+  let outlineX = 0, outlineY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorDot.style.left = mouseX - 4 + 'px';
+    cursorDot.style.top = mouseY - 4 + 'px';
+  });
+
+  function animateCursor() {
+    outlineX += (mouseX - outlineX) * 0.15;
+    outlineY += (mouseY - outlineY) * 0.15;
+    cursorOutline.style.left = outlineX + 'px';
+    cursorOutline.style.top = outlineY + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  const hoverTargets = document.querySelectorAll('a, button, .project-card, input, label');
+  hoverTargets.forEach(el => {
+    el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover'));
+  });
+}
+
+// -------- Scroll Progress Bar --------
+const scrollProgress = document.querySelector('.scroll-progress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / docHeight) * 100;
+  if (scrollProgress) {
+    scrollProgress.style.width = scrollPercent + '%';
+  }
+}, { passive: true });
+
+// -------- Navigation Scroll Effect --------
+const mainNav = document.querySelector('.main-nav');
+window.addEventListener('scroll', () => {
+  if (mainNav) {
+    if (window.scrollY > 50) {
+      mainNav.classList.add('scrolled');
+    } else {
+      mainNav.classList.remove('scrolled');
+    }
+  }
+}, { passive: true });
+
+// -------- Active Section Detection --------
+const sections = document.querySelectorAll('main, section');
+const navLinks = document.querySelectorAll('.nav-link');
+const dots = document.querySelectorAll('.section-dots .dot');
+
+function updateActiveSection() {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 200;
+    if (window.scrollY >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('data-section') === current) {
+      link.classList.add('active');
+    }
+  });
+
+  dots.forEach(dot => {
+    dot.classList.remove('active');
+    if (dot.getAttribute('data-section') === current) {
+      dot.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', updateActiveSection, { passive: true });
+
+// -------- Mobile Nav Toggle --------
+const navToggle = document.querySelector('.nav-toggle');
+const navLinksContainer = document.querySelector('.nav-links');
+
+if (navToggle && navLinksContainer) {
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('active');
+    navLinksContainer.classList.toggle('open');
+  });
+
+  navLinksContainer.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navToggle.classList.remove('active');
+      navLinksContainer.classList.remove('open');
+    });
+  });
+}
+
+// -------- Project Carousel --------
 let swiperInstance;
-
-// 요소 선택
-const checkboxes = document.querySelectorAll('input[name="filter"]');
-const cards = document.querySelectorAll('.project-card');
+let projectSwiper;
 const modal = document.getElementById('projectModal');
 const modalClose = modal.querySelector('.modal-close');
+const modalOverlay = modal.querySelector('.modal-overlay');
 const modalSwiperWrapper = document.getElementById('modalSwiperWrapper');
+const projectSwiperWrapper = document.getElementById('projectSwiperWrapper');
 
-// 카드별 모달 데이터 저장
-const modalSlides = [
+// All project data with type
+const allProjects = [
   {
+    type: 'publishing',
     title: '주택관리공단',
-    desc: '주택관리공단 홈페이지를<br> 리디자인하여 제작하였습니다.',
+    card: 'project-card01.png',
+    tag: 'Single',
+    desc: '주택관리공단 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '',
     skills: ['html', 'css', 'javascript', 'figma', 'Github'],
     gif: 'project01.gif',
@@ -51,8 +320,11 @@ const modalSlides = [
     }
   },
   {
-    title: '스튜디오<br> 지브리',
-    desc: '스튜디오 지브리 홈페이지를<br> 리디자인하여 제작하였습니다.',
+    type: 'publishing',
+    title: '스튜디오 지브리',
+    card: 'project-card02.png',
+    tag: 'Team',
+    desc: '스튜디오 지브리 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '<strong>기여도 : 39%</strong> <br> 제작페이지: 메인페이지(헤더, 이벤트, 지도), 서브페이지(회사정보, 소식, 이벤트, QnA)',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
     gif: 'project02.gif',
@@ -65,8 +337,11 @@ const modalSlides = [
     }
   },
   {
+    type: 'publishing',
     title: '프립',
-    desc: '프립 홈페이지를<br> 리디자인하여 제작하였습니다.',
+    card: 'project-card03.png',
+    tag: 'Single',
+    desc: '프립 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
     gif: 'project03.gif',
@@ -79,8 +354,11 @@ const modalSlides = [
     }
   },
   {
+    type: 'publishing',
     title: '롯데리아',
-    desc: '롯데리아 홈페이지를<br> 리디자인하여 제작하였습니다.',
+    card: 'project-card04.png',
+    tag: 'Team',
+    desc: '롯데리아 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '<strong>기여도 : 43%</strong> <br> 제작페이지: 메인페이지(메인푸터, 배너, 숏츠, 매장찾기, 서브푸터), 서브페이지(브랜드)',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
     gif: 'project04.gif',
@@ -93,8 +371,11 @@ const modalSlides = [
     }
   },
   {
-    title: '와일드<br> 리프트',
-    desc: '와일드 리프트 홈페이지를<br> 리디자인하여 제작하였습니다.',
+    type: 'publishing',
+    title: '와일드 리프트',
+    card: 'project-card05.png',
+    tag: 'Team',
+    desc: '와일드 리프트 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '<strong>기여도 : 29%</strong> <br> 제작페이지: 메인페이지(캐릭터소개, 배너, 관련게임), 서브페이지(캐릭터 소개)',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
     gif: 'project05.gif',
@@ -107,8 +388,11 @@ const modalSlides = [
     }
   },
   {
+    type: 'publishing',
     title: '공차',
-    desc: '공차 홈페이지를<br> 리디자인하여 제작하였습니다.',
+    card: 'project-card06.png',
+    tag: 'Single / React',
+    desc: '공차 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github', 'react', 'bootstrap'],
     gif: 'project06.gif',
@@ -121,10 +405,13 @@ const modalSlides = [
     }
   },
   {
+    type: 'publishing',
     title: '포트폴리오',
-    desc: '포트폴리오를<br> 제작하였습니다.',
+    card: 'project-card07.png',
+    tag: 'Single',
+    desc: '포트폴리오를<br>제작하였습니다.',
     Contribution: '',
-    skills: ['html', 'scss', 'javascript', 'figma', 'Github',],
+    skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
     gif: 'project07.gif',
     bg: 'project07-bg.png',
     links: {
@@ -135,10 +422,13 @@ const modalSlides = [
     }
   },
   {
+    type: 'publishing',
     title: 'Movie306',
-    desc: 'Movie306를<br> 제작하였습니다.',
+    card: 'project-card08.png',
+    tag: 'Single / React',
+    desc: 'Movie306를<br>제작하였습니다.',
     Contribution: '',
-    skills: ['html', 'scss', 'javascript', 'figma', 'Github','react'],
+    skills: ['html', 'scss', 'javascript', 'figma', 'Github', 'react'],
     gif: 'project08.gif',
     bg: 'project05-bg.png',
     links: {
@@ -147,155 +437,285 @@ const modalSlides = [
       github: 'https://github.com/hyohee22/Movie.git',
       site: 'https://coruscating-palmier-1f4905.netlify.app/'
     }
+  },
+  // ---- AI Projects ----
+  {
+    type: 'ai',
+    title: 'AI 프로젝트 01',
+    card: 'project-card01.png',
+    tag: 'AI',
+    desc: 'AI를 활용하여<br>제작하였습니다.',
+    Contribution: '',
+    skills: ['figma', 'Github'],
+    gif: 'project01.gif',
+    bg: 'project01-bg.png',
+    links: { plan: '', figma: '', github: '', site: '' }
+  },
+  {
+    type: 'ai',
+    title: 'AI 프로젝트 02',
+    card: 'project-card02.png',
+    tag: 'AI',
+    desc: 'AI를 활용하여<br>제작하였습니다.',
+    Contribution: '',
+    skills: ['figma', 'Github'],
+    gif: 'project02.gif',
+    bg: 'project02-bg.png',
+    links: { plan: '', figma: '', github: '', site: '' }
+  },
+  {
+    type: 'ai',
+    title: 'AI 프로젝트 03',
+    card: 'project-card03.png',
+    tag: 'AI',
+    desc: 'AI를 활용하여<br>제작하였습니다.',
+    Contribution: '',
+    skills: ['figma', 'Github'],
+    gif: 'project03.gif',
+    bg: 'project03-bg.png',
+    links: { plan: '', figma: '', github: '', site: '' }
   }
 ];
 
-// 필터 함수
-checkboxes.forEach(cb => cb.addEventListener('change', applyFilter));
+let activeTab = 'publishing';
+let filteredProjects = [];
 
-function applyFilter() {
-  const selected = [...checkboxes]
-    .filter(cb => cb.checked)
-    .map(cb => cb.value);
+// Build carousel slides from data
+function buildCarousel(tab) {
+  activeTab = tab;
+  filteredProjects = allProjects.filter(p => p.type === tab);
 
-  cards.forEach(card => {
-    const tags = card.dataset.category.split(' ');
-    if (selected.includes('all') || selected.length === 0) {
-      card.style.display = 'block';
-    } else {
-      const isMatch = selected.some(tag => tags.includes(tag));
-      card.style.display = isMatch ? 'block' : 'none';
-    }
+  // Destroy old swiper
+  if (projectSwiper && projectSwiper.destroy) {
+    projectSwiper.destroy(true, true);
+  }
+
+  if (filteredProjects.length === 0) {
+    projectSwiperWrapper.innerHTML = '<div class="project-empty">준비 중입니다.</div>';
+    document.querySelector('#projectScrollbar').style.display = 'none';
+    return;
+  }
+
+  document.querySelector('#projectScrollbar').style.display = '';
+
+  // Build slide HTML
+  projectSwiperWrapper.innerHTML = filteredProjects.map((p, i) => `
+    <div class="swiper-slide">
+      <div class="project-card" data-index="${i}">
+        <div class="project-card-img">
+          <img src="images/${p.card}" alt="${p.title}">
+        </div>
+        <div class="project-card-info">
+          <p>${p.title}</p>
+          <span class="project-tag">${p.tag}</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // Init swiper
+  projectSwiper = new Swiper('.project-swiper', {
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    initialSlide: 0,
+    speed: 600,
+    spaceBetween: 24,
+    freeMode: {
+      enabled: true,
+      sticky: true,
+      momentumRatio: 0.6,
+      momentumVelocityRatio: 0.6,
+      momentumBounce: true,
+      momentumBounceRatio: 0.8,
+    },
+    scrollbar: {
+      el: '#projectScrollbar',
+      draggable: true,
+      hide: false,
+      snapOnRelease: true,
+      dragSize: 36,
+    },
   });
 }
 
-// 카드 클릭 시 모달 열기
-cards.forEach((card, index) => {
-  card.addEventListener('click', () => {
-    modal.style.display = 'flex';
+// Init first tab
+buildCarousel('publishing');
 
-    if (window.innerWidth <= 768) {
-      modal.classList.add('mobile');
-    } else {
-      modal.classList.remove('mobile');
-    }
+// Tab click
+document.querySelectorAll('.project-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    if (tab.dataset.tab === activeTab) return;
+    document.querySelectorAll('.project-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    buildCarousel(tab.dataset.tab);
+  });
+});
 
-    // 보여지는 카드 기준으로 슬라이드 생성
-    const visibleCards = [...cards].filter(c => c.style.display !== 'none');
-    const visibleIndexes = visibleCards.map(c => [...cards].indexOf(c));
-    const startIndex = visibleCards.indexOf(card);
+// Skill icon mapping
+function getSkillIndex(skill) {
+  const map = {
+    html: '01',
+    css: '02',
+    scss: '03',
+    javascript: '05',
+    figma: '10',
+    Github: '07',
+    react: '06',
+    bootstrap: '08'
+  };
+  return map[skill] || '00';
+}
 
-    const slidesHtml = visibleIndexes.map(i => {
-      const data = modalSlides[i];
-      return `
-        <div class="swiper-slide">
-          <div class="modal-slide-inner">
-            <div class="modal-text-box">
-              <h3>ReDesign</h3>
-              <h1>${data.title}</h1>
-              <p>${data.desc}</p>
-              <p class="modal-text-span">${data.Contribution}</p>
-              <div class="skill-icons">
-                ${data.skills.map(skill => `<img src="images/skill${getSkillIndex(skill)}.png" alt="${skill}">`).join('')}
-              </div>
+// Card click -> open modal (event delegation)
+document.querySelector('.project-swiper').addEventListener('click', (e) => {
+  const card = e.target.closest('.project-card');
+  if (!card) return;
+  const idx = parseInt(card.dataset.index);
+  if (isNaN(idx)) return;
+
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+
+  const slidesHtml = filteredProjects.map((data) => {
+    return `
+      <div class="swiper-slide">
+        <div class="modal-slide-inner">
+          <div class="modal-text-box">
+            <h3>ReDesign</h3>
+            <h1>${data.title}</h1>
+            <p>${data.desc}</p>
+            <p class="modal-text-span">${data.Contribution}</p>
+            <div class="skill-icons">
+              ${data.skills.map(skill => `<img src="images/skill${getSkillIndex(skill)}.png" alt="${skill}">`).join('')}
             </div>
-            <div class="modal-img-box">
-              <img src="images/${data.gif}" 
-              alt="프로젝트 미리보기" 
-              class="project-gif ${data.title === '공차' ? 'gongcha-gif' : data.title === '포트폴리오' ? 'portfolio-gif' : ''}">
-              <img src="images/${data.bg}" alt="프로젝트 사진" class="mobile-preview">
-            </div>
-            <div class="btn-group">
+          </div>
+          <div class="modal-img-box">
+            <img src="images/${data.gif}"
+            alt="프로젝트 미리보기"
+            class="project-gif ${data.title === '공차' ? 'gongcha-gif' : data.title === '포트폴리오' ? 'portfolio-gif' : ''}">
+            <img src="images/${data.bg}" alt="프로젝트 사진" class="mobile-preview">
+          </div>
+          <div class="btn-group">
             ${data.links.plan ? `<a href="${data.links.plan}" target="_blank" class="modal-btn">기획서</a>` : ''}
             ${data.links.figma ? `<a href="${data.links.figma}" target="_blank" class="modal-btn">Figma</a>` : ''}
             ${data.links.github ? `<a href="${data.links.github}" target="_blank" class="modal-btn">Github</a>` : ''}
             ${data.links.site ? `<a href="${data.links.site}" target="_blank" class="modal-btn pint">홈페이지</a>` : ''}
           </div>
-          </div>
         </div>
-      `;
-    }).join('');
-
-    modalSwiperWrapper.innerHTML = `
-      <div class="swiper modal-swiper">
-        <div class="swiper-wrapper">
-          ${slidesHtml}
-        </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
       </div>
     `;
+  }).join('');
 
-    // Swiper 초기화
-    setTimeout(() => {
-      if (swiperInstance && swiperInstance.destroy) {
-        swiperInstance.destroy(true, true);
-      }
+  modalSwiperWrapper.innerHTML = `
+    <div class="swiper modal-swiper">
+      <div class="swiper-wrapper">
+        ${slidesHtml}
+      </div>
+      <div class="swiper-button-prev"><i class="bi bi-chevron-left"></i></div>
+      <div class="swiper-button-next"><i class="bi bi-chevron-right"></i></div>
+    </div>
+  `;
 
-      swiperInstance = new Swiper('.modal-swiper', {
-        loop: false,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        observer: true,
-        observeParents: true,
-        on: {
-          init: function () {
-            this.slideTo(startIndex || 0);
-          }
-        }
-      });
+  setTimeout(() => {
+    if (swiperInstance && swiperInstance.destroy) {
+      swiperInstance.destroy(true, true);
+    }
 
-    }, 0);
-  });
+    swiperInstance = new Swiper('.modal-swiper', {
+      loop: false,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      observer: true,
+      observeParents: true,
+      initialSlide: idx,
+    });
+  }, 0);
+});
 
+// Close modal
+function closeModal() {
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+}
 
-  // 스킬 아이콘 이미지
-  function getSkillIndex(skill) {
-    const map = {
-      html: '01',
-      css: '02',
-      scss: '03',
-      javascript: '05',
-      figma: '10',
-      Github: '07',
-      react: '06',
-      bootstrap: '08'
-    };
-    return map[skill] || '00';
+modalClose.addEventListener('click', closeModal);
+if (modalOverlay) {
+  modalOverlay.addEventListener('click', closeModal);
+}
+
+// ESC key close modal
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.style.display === 'flex') {
+    closeModal();
   }
+});
 
-  // 모달 닫기
-  modalClose.addEventListener('click', () => {
-    modal.style.display = 'none';
-    modal.classList.remove('mobile');
-  });
-
-  // 필터 적용
-  applyFilter();
-
-  //이메일 복사
-  const emailElement = document.getElementById('email');
-
+// -------- Email Copy --------
+const emailElement = document.getElementById('email');
+if (emailElement) {
   emailElement.addEventListener('click', () => {
-    const email = emailElement.innerText;
+    const email = 'whgygml2580@naver.com';
 
     navigator.clipboard.writeText(email)
       .then(() => {
-
-        const originalText = emailElement.innerText;
-        emailElement.innerText = '📋 복사 완료';
+        const originalHTML = emailElement.innerHTML;
+        emailElement.textContent = 'Copied!';
         emailElement.classList.add('copied');
 
         setTimeout(() => {
-          emailElement.innerText = originalText;
+          emailElement.innerHTML = originalHTML;
           emailElement.classList.remove('copied');
-        }, 800);
+        }, 1200);
       })
       .catch((err) => {
-        alert('복사 실패');
-        console.error(err);
+        console.error('Copy failed:', err);
       });
+  });
+}
+
+// -------- Top Button with progress ring --------
+const topBtn = document.getElementById('topBtn');
+const topBtnFill = document.getElementById('topBtnFill');
+const CIRCUMFERENCE = 2 * Math.PI * 21; // r=21
+
+if (topBtn) {
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+
+    // Show / hide
+    if (scrollTop > 400) {
+      topBtn.classList.add('visible');
+    } else {
+      topBtn.classList.remove('visible');
+    }
+
+    // Update progress ring
+    if (topBtnFill) {
+      const offset = CIRCUMFERENCE * (1 - progress);
+      topBtnFill.style.strokeDashoffset = offset;
+    }
+  }, { passive: true });
+
+  topBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// -------- Smooth scroll for anchor links --------
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   });
 });
