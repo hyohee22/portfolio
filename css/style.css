@@ -2219,9 +2219,13 @@ h1, h2, h3, h4, h5, h6 {
   .about-my-self {
     flex-direction: column !important;
     text-align: center !important;
-    max-width: 380px;
+    width: 100% !important;
     margin: 0 auto;
     padding: 32px 28px !important;
+  }
+
+  .skill-grid{
+    flex-direction: row;
   }
 
   .about-my-self .my-photo {
