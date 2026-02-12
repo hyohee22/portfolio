@@ -308,7 +308,7 @@ const allProjects = [
     card: 'project-card01.jpg',
     tag: 'Single',
     desc: '주택관리공단 홈페이지를<br>리디자인하여 제작하였습니다.',
-    Contribution: '',
+    Contribution: '<strong>기여도 : 100%</strong>',
     skills: ['html', 'css', 'javascript', 'figma', 'Github'],
     bg: 'project-card01.png',
     links: {
@@ -340,7 +340,7 @@ const allProjects = [
     card: 'project-card03.jpg',
     tag: 'Single',
     desc: '프립 홈페이지를<br>리디자인하여 제작하였습니다.',
-    Contribution: '',
+    Contribution: '<strong>기여도 : 100%</strong>',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
     bg: 'project-card03.png',
     links: {
@@ -369,7 +369,7 @@ const allProjects = [
   {
     type: 'publishing',
     title: '와일드 리프트',
-    card: 'project-card05.png',
+    card: 'project-card05_.jpg',
     tag: 'Team',
     desc: '와일드 리프트 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '<strong>기여도 : 29%</strong> <br> 제작페이지: 메인페이지(캐릭터소개, 배너, 관련게임), 서브페이지(캐릭터 소개)',
@@ -384,82 +384,50 @@ const allProjects = [
   },
   {
     type: 'publishing',
-    title: '공차',
-    card: 'project-card06.jpg',
-    tag: 'Single / React',
-    desc: '공차 홈페이지를<br>리디자인하여 제작하였습니다.',
-    Contribution: '',
-    skills: ['html', 'scss', 'javascript', 'figma', 'Github', 'react', 'bootstrap'],
-    bg: 'project-card06.png',
-    links: {
-      plan: '',
-      figma: 'https://www.figma.com/design/H0kZ7DIz3LphQSryWmngWK/Untitled?node-id=0-1&t=0pckH5zkTZvqEyxD-1',
-      github: 'https://github.com/hyohee22/gongcah.git',
-      site: 'https://gongchaa.netlify.app/'
-    }
-  },
-  {
-    type: 'publishing',
-    title: 'Movie306',
-    card: 'project-card08.jpg',
-    tag: 'Single / React',
-    desc: 'Movie306를<br>제작하였습니다.',
-    Contribution: '',
-    skills: ['html', 'scss', 'javascript', 'figma', 'Github', 'react'],
-    bg: 'project-card07.png',
-    links: {
-      plan: '',
-      figma: 'https://www.figma.com/design/WCrIJv5sbxVib5ucyD8FoC/%EC%98%81%ED%99%94?node-id=0-1&t=tLtwuXvVwX52aCJN-1',
-      github: 'https://github.com/hyohee22/Movie.git',
-      site: 'https://coruscating-palmier-1f4905.netlify.app/'
-    }
-  },
-  {
-    type: 'publishing',
     title: '세르보테크',
-    card: 'project-card07.png',
+    card: 'project-card07_.png',
     tag: 'Team',
-    desc: '포트폴리오를<br>제작하였습니다.',
-    Contribution: '',
-    skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
+    desc: '제품 정보를 한눈에 확인할 수 있도록 슬라이더 기반의 UI를 적용했으며,<br>부드러운 디자인 톤을 통해 산업 분야의 무거운 이미지를 완화하고<br> 사용자에게 친근하게 다가갈 수 있도록 제작했습니다.',
+    Contribution: '<strong>기여도 : 40%</strong>',
+    skills: ['html', 'css', 'javascript', 'figma'],
     bg: 'project-card08.png',
     links: {
       plan: '',
-      figma: 'https://www.figma.com/design/yYEUpIKnmtGJcUNTb85uSN/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4?node-id=0-1&t=dIo2CN6FyLLP7CrX-1',
-      github: 'https://github.com/hyohee22/portfolio.git',
-      site: 'https://hyohee22.github.io/portfolio/'
+      figma: '',
+      github: '',
+      site: 'http://servotech23.com/'
     }
   },
   {
     type: 'publishing',
     title: '티벌컨',
-    card: 'project-card09.png',
+    card: 'project-card08_.png',
     tag: 'Team',
-    desc: '포트폴리오를<br>제작하였습니다.',
-    Contribution: '',
-    skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
-    bg: 'pproject-card09.png',
+    desc: '기업의 전문성과 신뢰감을 효과적으로 전달할 수 있도록 전체적인 디자인을 세련되고 <br> 정돈된 방향으로 구성했습니다. 불필요한 요소를 최소화하고 깔끔한 레이아웃과<br> 컬러 톤을 적용하여 신뢰할 수 있는 기업 이미지를 전달하는 데 중점을 두었습니다.',
+    Contribution: '<strong>기여도 : 40%</strong>',
+    skills: ['html', 'css', 'javascript', 'figma'],
+    bg: 'project-card09.png',
     links: {
       plan: '',
-      figma: 'https://www.figma.com/design/yYEUpIKnmtGJcUNTb85uSN/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4?node-id=0-1&t=dIo2CN6FyLLP7CrX-1',
-      github: 'https://github.com/hyohee22/portfolio.git',
-      site: 'https://hyohee22.github.io/portfolio/'
+      figma: '',
+      github: '',
+      site: 'http://www.t-vulcan.com/'
     }
   },
   {
     type: 'publishing',
     title: '리얼디자인테크',
-    card: 'project-card10.png',
+    card: 'project-card09_.png',
     tag: 'Team',
-    desc: '포트폴리오를<br>제작하였습니다.',
-    Contribution: '',
-    skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
-    bg: 'project-card10.png',
+    desc: '운동기구를 개발하는 기업의 특성을 고려하여 신뢰감 있고 안정적인<br>  기업 이미지를 전달하는 데 중점을 두었습니다. 특히 제품의 기능과 시스템 구조가 명확하게<br>  전달될 수 있도록 기능 중심의 정보 구성과 레이아웃으로 디자인을 진행했습니다.',
+    Contribution: '<strong>기여도 : 40%</strong>',
+    skills: ['html', 'css', 'javascript', 'figma'],
+    bg: 'project-card10.gif',
     links: {
       plan: '',
-      figma: 'https://www.figma.com/design/yYEUpIKnmtGJcUNTb85uSN/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4?node-id=0-1&t=dIo2CN6FyLLP7CrX-1',
-      github: 'https://github.com/hyohee22/portfolio.git',
-      site: 'https://hyohee22.github.io/portfolio/'
+      figma: 'https://www.figma.com/design/ei9tRpf04Z712B3Iirl6qJ/Untitled?node-id=0-1&t=JTsvHfcUjIcTK8ck-1',
+      github: '',
+      site: ''
     }
   },
   // ---- AI Projects ----
@@ -470,22 +438,9 @@ const allProjects = [
     tag: 'AI/Design',
     desc: 'AI를 활용하여<br>제작하였습니다.',
     Contribution: '',
-    skills: ['Claude', 'Github'],
-    gif: 'project01.gif',
-    bg: 'project01-bg.png',
-    links: { plan: '', figma: '', github: '', site: '' }
-  },
-  {
-    type: 'ai',
-    title: '새론테크',
-    card: 'project-card12.jpg',
-    tag: 'AI/Design',
-    desc: 'AI를 활용하여<br>제작하였습니다.',
-    Contribution: '',
-    skills: ['figma', 'Github'],
-    gif: 'project02.gif',
-    bg: 'project02-bg.png',
-    links: { plan: '', figma: '', github: '', site: '' }
+    skills: ['Claude', 'figma'],
+    bg: 'project-card11.gif',
+    links: { plan: '', figma: 'https://www.figma.com/design/G6VJMW187Mn5sXMV5Fi7F0/Untitled?node-id=0-1&t=9c3XcFGYJSMpPmmv-1', github: '', site: '' }
   },
   {
     type: 'ai',
@@ -493,10 +448,9 @@ const allProjects = [
     card: 'project-card13.png',
     tag: 'AI',
     desc: 'AI를 활용하여<br>제작하였습니다.',
-    Contribution: '',
-    skills: ['figma', 'Github'],
-    gif: 'project03.gif',
-    bg: 'project03-bg.png',
+    Contribution: '<strong>기여도 : 100%</strong>',
+    skills: ['AI Studio'],
+    bg: 'project-card13.gif',
     links: { plan: '', figma: '', github: '', site: '' }
   }
 ];
@@ -577,18 +531,20 @@ document.querySelectorAll('.project-tab').forEach(tab => {
 });
 
 // Skill icon mapping
-function getSkillIndex(skill) {
+function getSkillIcon(skill) {
   const map = {
-    html: '01',
-    css: '02',
-    scss: '03',
-    javascript: '05',
-    figma: '10',
-    Github: '07',
-    react: '06',
-    bootstrap: '08'
+    html: 'skill01.png',
+    css: 'skill02.png',
+    scss: 'skill03.png',
+    javascript: 'skill05.png',
+    figma: 'skill10.png',
+    Github: 'skill07.png',
+    react: 'skill06.png',
+    bootstrap: 'skill08.png',
+    Claude: 'skill-claude.png',
+    'AI Studio': 'skill-aistudio.png'
   };
-  return map[skill] || '00';
+  return map[skill] || 'skill00.png';
 }
 
 // Card click -> open modal (event delegation)
@@ -611,13 +567,13 @@ document.querySelector('.project-swiper').addEventListener('click', (e) => {
             <p>${data.desc}</p>
             <p class="modal-text-span">${data.Contribution}</p>
             <div class="skill-icons">
-              ${data.skills.map(skill => `<img src="images/skill${getSkillIndex(skill)}.png" alt="${skill}">`).join('')}
+              ${data.skills.map(skill => `<img src="images/${getSkillIcon(skill)}" alt="${skill}">`).join('')}
             </div>
           </div>
           <div class="modal-img-box">
-            <img src="images/${data.gif}"
+            ${data.gif ? `<img src="images/${data.gif}"
             alt="프로젝트 미리보기"
-            class="project-gif ${data.title === '공차' ? 'gongcha-gif' : data.title === '포트폴리오' ? 'portfolio-gif' : ''}">
+            class="project-gif ${data.title === '공차' ? 'gongcha-gif' : data.title === '포트폴리오' ? 'portfolio-gif' : ''}">` : ''}
             <img src="images/${data.bg}" alt="프로젝트 사진" class="mobile-preview">
           </div>
           <div class="btn-group">

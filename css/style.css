@@ -230,6 +230,82 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--bg-primary);
 }
 
+/* -------- Dark Mode Buttons -------- */
+[data-theme="dark"] .btn-primary {
+  background: #f0f0f0;
+  color: #111111;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(255,255,255,0.1);
+}
+
+[data-theme="dark"] .btn-outline {
+  border-color: #444444;
+  color: #f0f0f0;
+  background: transparent;
+}
+
+[data-theme="dark"] .btn-outline:hover {
+  border-color: #f0f0f0;
+  box-shadow: 0 4px 16px rgba(255,255,255,0.06);
+}
+
+[data-theme="dark"] .resume-btn {
+  background: #f0f0f0;
+  color: #111111;
+}
+
+[data-theme="dark"] .resume-btn:hover {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+}
+
+[data-theme="dark"] .btn-group .modal-btn {
+  border-color: #444444;
+  color: #f0f0f0;
+  background: transparent;
+}
+
+[data-theme="dark"] .btn-group .modal-btn:hover {
+  border-color: #f0f0f0;
+  background: #1a1a1a;
+}
+
+[data-theme="dark"] .btn-group .modal-btn.pint {
+  background: #f0f0f0;
+  color: #111111;
+  border-color: #f0f0f0;
+}
+
+[data-theme="dark"] .btn-group .modal-btn.pint:hover {
+  background: #ffffff;
+}
+
+[data-theme="dark"] .modal-close {
+  border-color: #444444;
+  background: #1a1a1a;
+}
+
+[data-theme="dark"] .modal-close:hover {
+  border-color: #f0f0f0;
+  background: #2a2a2a;
+}
+
+[data-theme="dark"] .modal-swiper .swiper-button-prev i,
+[data-theme="dark"] .modal-swiper .swiper-button-next i {
+  border-color: #444444;
+  background: #1a1a1a;
+  color: #f0f0f0;
+}
+
+[data-theme="dark"] .modal-swiper .swiper-button-prev i:hover,
+[data-theme="dark"] .modal-swiper .swiper-button-next i:hover {
+  border-color: #f0f0f0;
+  background: #2a2a2a;
+}
+
 /* -------- Scroll Progress -------- */
 .scroll-progress {
   position: fixed;
@@ -1414,6 +1490,8 @@ h1, h2, h3, h4, h5, h6 {
 .modal-img-box .mobile-preview {
   width: 100%;
   max-width: 620px;
+  max-height: 480px;
+  object-fit: contain;
   position: relative;
   z-index: 2;
 }
@@ -2123,7 +2201,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .modal-img-box {
-    min-height: 280px;
+    min-height: auto;
   }
 
   .btn-group {
@@ -2283,13 +2361,55 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 36px;
   }
 
+  .modal-content {
+    overflow-y: auto;
+  }
+
   .modal-slide-inner {
     padding: 28px 18px;
   }
 
+  .modal-img-box {
+    min-height: auto;
+  }
+
+  .modal-img-box .mobile-preview {
+    max-height: 40vh;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .modal-img-box .project-gif {
+    max-height: 40vh;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+
   .modal-swiper .swiper-button-prev,
   .modal-swiper .swiper-button-next {
-    display: none;
+    width: 32px;
+    height: 32px;
+  }
+
+  .modal-swiper .swiper-button-prev i,
+  .modal-swiper .swiper-button-next i {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .modal-swiper .swiper-button-prev {
+    left: 6px;
+  }
+
+  .modal-swiper .swiper-button-next {
+    right: 6px;
   }
 
   .btn-group {
