@@ -374,7 +374,7 @@ const allProjects = [
     desc: '와일드 리프트 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '<strong>기여도 : 29%</strong> <br> 제작페이지: 메인페이지(캐릭터소개, 배너, 관련게임), 서브페이지(캐릭터 소개)',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
-    bg: 'project-card05_.png',
+    bg: 'project-card05.png',
     links: {
       plan: '',
       figma: 'https://www.figma.com/design/sBI4tArVHDgKL6nuWS3zXf/Untitled?node-id=0-1&t=fJBgCjIQRmnF05HC-1',
@@ -422,8 +422,7 @@ const allProjects = [
     desc: '포트폴리오를<br>제작하였습니다.',
     Contribution: '',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
-    gif: 'project07.gif',
-    bg: 'project07-bg.png',
+    bg: 'project-card08.png',
     links: {
       plan: '',
       figma: 'https://www.figma.com/design/yYEUpIKnmtGJcUNTb85uSN/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4?node-id=0-1&t=dIo2CN6FyLLP7CrX-1',
@@ -439,8 +438,7 @@ const allProjects = [
     desc: '포트폴리오를<br>제작하였습니다.',
     Contribution: '',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
-    gif: 'project07.gif',
-    bg: 'project07-bg.png',
+    bg: 'pproject-card09.png',
     links: {
       plan: '',
       figma: 'https://www.figma.com/design/yYEUpIKnmtGJcUNTb85uSN/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4?node-id=0-1&t=dIo2CN6FyLLP7CrX-1',
@@ -456,8 +454,7 @@ const allProjects = [
     desc: '포트폴리오를<br>제작하였습니다.',
     Contribution: '',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
-    gif: 'project07.gif',
-    bg: 'project07-bg.png',
+    bg: 'project-card10.png',
     links: {
       plan: '',
       figma: 'https://www.figma.com/design/yYEUpIKnmtGJcUNTb85uSN/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4?node-id=0-1&t=dIo2CN6FyLLP7CrX-1',
