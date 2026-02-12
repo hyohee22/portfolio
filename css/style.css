@@ -290,6 +290,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   gap: 36px;
   align-items: center;
+  margin-right: 20px;
 }
 
 .nav-link {
@@ -1419,7 +1420,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-group {
   position: absolute;
-  bottom: 50px;
+  bottom: 30%;
   left: 56px;
   display: flex;
   gap: 10px;

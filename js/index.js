@@ -310,8 +310,7 @@ const allProjects = [
     desc: '주택관리공단 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '',
     skills: ['html', 'css', 'javascript', 'figma', 'Github'],
-    gif: 'project01.gif',
-    bg: 'project01-bg.png',
+    bg: 'project-card01.png',
     links: {
       plan: 'https://docs.google.com/presentation/d/1rr1J4pH5-m-hv2dVzhk0ZfMPW3qt5pR5/edit?usp=sharing&ouid=108859944500099032843&rtpof=true&sd=true',
       figma: 'https://www.figma.com/design/uJCBtUTc8osVIkqO6Qm7Vc/Untitled?node-id=0-1&t=JzeTtCOpd71xYzkX-1',
@@ -327,8 +326,7 @@ const allProjects = [
     desc: '스튜디오 지브리 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '<strong>기여도 : 39%</strong> <br> 제작페이지: 메인페이지(헤더, 이벤트, 지도), 서브페이지(회사정보, 소식, 이벤트, QnA)',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
-    gif: 'project02.gif',
-    bg: 'project02-bg.png',
+    bg: 'project-card02.png',
     links: {
       plan: 'https://example.com/plan2.pdf',
       figma: 'https://www.figma.com/design/TE2nAzbjTP02nyKJGLW35W/Untitled?node-id=0-1&t=v4LxSbg91PcX6aFH-1',
@@ -344,8 +342,7 @@ const allProjects = [
     desc: '프립 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
-    gif: 'project03.gif',
-    bg: 'project03-bg.png',
+    bg: 'project-card03.png',
     links: {
       plan: '',
       figma: '',
@@ -361,8 +358,7 @@ const allProjects = [
     desc: '롯데리아 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '<strong>기여도 : 43%</strong> <br> 제작페이지: 메인페이지(메인푸터, 배너, 숏츠, 매장찾기, 서브푸터), 서브페이지(브랜드)',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
-    gif: 'project04.gif',
-    bg: 'project04-bg.png',
+    bg: 'project-card04.png',
     links: {
       plan: '',
       figma: 'https://www.figma.com/design/ccfH1wfZ0SsSsYr6sj7Qdq/Untitled?node-id=0-1&t=nk8TpipzmSVYEhzx-1',
@@ -378,8 +374,7 @@ const allProjects = [
     desc: '와일드 리프트 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '<strong>기여도 : 29%</strong> <br> 제작페이지: 메인페이지(캐릭터소개, 배너, 관련게임), 서브페이지(캐릭터 소개)',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github'],
-    gif: 'project05.gif',
-    bg: 'project05-bg.png',
+    bg: 'project-card05_.png',
     links: {
       plan: '',
       figma: 'https://www.figma.com/design/sBI4tArVHDgKL6nuWS3zXf/Untitled?node-id=0-1&t=fJBgCjIQRmnF05HC-1',
@@ -395,8 +390,7 @@ const allProjects = [
     desc: '공차 홈페이지를<br>리디자인하여 제작하였습니다.',
     Contribution: '',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github', 'react', 'bootstrap'],
-    gif: 'project06.gif',
-    bg: 'project06-bg.png',
+    bg: 'project-card06.png',
     links: {
       plan: '',
       figma: 'https://www.figma.com/design/H0kZ7DIz3LphQSryWmngWK/Untitled?node-id=0-1&t=0pckH5zkTZvqEyxD-1',
@@ -412,8 +406,7 @@ const allProjects = [
     desc: 'Movie306를<br>제작하였습니다.',
     Contribution: '',
     skills: ['html', 'scss', 'javascript', 'figma', 'Github', 'react'],
-    gif: 'project08.gif',
-    bg: 'project05-bg.png',
+    bg: 'project-card07.png',
     links: {
       plan: '',
       figma: 'https://www.figma.com/design/WCrIJv5sbxVib5ucyD8FoC/%EC%98%81%ED%99%94?node-id=0-1&t=tLtwuXvVwX52aCJN-1',
