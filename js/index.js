@@ -449,9 +449,9 @@ const allProjects = [
     tag: 'AI',
     desc: 'AI를 활용하여<br>제작하였습니다.',
     Contribution: '<strong>기여도 : 100%</strong>',
-    skills: ['AI Studio'],
+    skills: ['AI Studio','Github'],
     bg: 'project-card13.gif',
-    links: { plan: '', figma: '', github: '', site: '' }
+    links: { plan: '', figma: '', github: '', site: 'https://illustrious-profiterole-2a3b6b.netlify.app/' }
   }
 ];
 
