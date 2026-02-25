@@ -438,9 +438,31 @@ const allProjects = [
     tag: 'AI/Design',
     desc: 'AI를 활용하여<br>제작하였습니다.',
     Contribution: '',
-    skills: ['Claude', 'figma'],
+    skills: ['Claude', 'figma','Github'],
     bg: 'project-card11.gif',
     links: { plan: '', figma: 'https://www.figma.com/design/G6VJMW187Mn5sXMV5Fi7F0/Untitled?node-id=0-1&t=9c3XcFGYJSMpPmmv-1', github: '', site: '' }
+  },
+  {
+    type: 'ai',
+    title: '탱글엔젤 핑크',
+    card: 'project-card22.png',
+    tag: 'AI/Design',
+    desc: 'AI를 활용하여<br>제작하였습니다.',
+    Contribution: '',
+    skills: ['codex', 'AI Studio','Github'],
+    bg: 'project-card20.png',
+    links: { plan: '', figma: '', github: '', site: 'https://hyohee22.github.io/Hair-Brushes/' }
+  },
+  {
+    type: 'ai',
+    title: '탱글엔젤 블랙',
+    card: 'project-card24.jpg',
+    tag: 'AI/Design',
+    desc: 'AI를 활용하여<br>제작하였습니다.',
+    Contribution: '',
+    skills: ['codex', 'AI Studio','Github'],
+    bg: 'project-card21.png',
+    links: { plan: '', figma: '', github: '', site: 'https://hyohee22.github.io/Hair-Brushes-black/' }
   },
   {
     type: 'ai',
@@ -542,7 +564,8 @@ function getSkillIcon(skill) {
     react: 'skill06.png',
     bootstrap: 'skill08.png',
     Claude: 'skill-claude.png',
-    'AI Studio': 'skill-aistudio.png'
+    'AI Studio': 'skill-aistudio.png',
+    codex: 'skill-chatgpt.svg'
   };
   return map[skill] || 'skill00.png';
 }
